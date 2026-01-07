@@ -59,7 +59,7 @@ export const menuItems = [
     name_en: "Ezogelin Soup",
     description_en: "A nutritious and satisfying starter prepared in the traditional way.",
     image: "/corba.webp",
-    price: "90 ₺",
+    price: "100 ₺",
     category: "corbalar"
   },
   {
@@ -69,7 +69,7 @@ export const menuItems = [
     name_en: "Chicken Soup",
     description_en: "The healing and flavor of chicken come together in this soup.",
     image: "/tavuksuyu.webp",
-    price: "90 ₺",
+    price: "100 ₺",
     category: "corbalar"
   },
   // Ana Yemekler
@@ -80,7 +80,7 @@ export const menuItems = [
     name_en: "Meatballs Portion (160 gr)",
     description_en: "Our unchanging taste since 1986. Served with rice, salad, and grilled tomatoes.",
     image: "/kofte.webp",
-    price: "340 ₺",
+    price: "400 ₺",
     category: "ana-yemekler"
   },
   {
@@ -90,7 +90,7 @@ export const menuItems = [
     name_en: "Meatballs Sandwich (100 gr)",
     description_en: "The perfect choice for a quick and delicious meal.",
     image: "/ekmekarasi.webp",
-    price: "250 ₺",
+    price: "300 ₺",
     category: "ana-yemekler"
   },
   {
@@ -100,7 +100,7 @@ export const menuItems = [
     name_en: "Chicken Skewer (200 gr)",
     description_en: "Specially marinated, juicy, and tender chicken skewer.",
     image: "/tavuksis.webp",
-    price: "340 ₺",
+    price: "400 ₺",
     category: "ana-yemekler"
   },
   {
@@ -110,7 +110,7 @@ export const menuItems = [
     name_en: "Lamb Skewer (180 gr)",
     description_en: "Marinated lamb meat cooked to perfection.",
     image: "/kuzusis.webp",
-    price: "520 ₺",
+    price: "600 ₺",
     category: "ana-yemekler"
   },
   {
@@ -120,7 +120,7 @@ export const menuItems = [
     name_en: "Kofte Chicken (180 gr)",
     description_en: "Special for those who want both meatball and chicken flavors together.",
     image: "/koftetavuk.webp",
-    price: "340 ₺",
+    price: "400 ₺",
     category: "ana-yemekler"
   },
   {
@@ -130,7 +130,7 @@ export const menuItems = [
     name_en: "Mixed Grill (270 gr)",
     description_en: "A satisfying combination of meatballs, lamb skewers, and chicken skewers.",
     image: "/tamkarisik.webp",
-    price: "600 ₺",
+    price: "700 ₺",
     category: "ana-yemekler"
   },
   {
@@ -140,7 +140,7 @@ export const menuItems = [
     name_en: "White Beans stewed in sauce",
     description_en: "Traditional homemade meal flavor.",
     image: "/kurufasulye.webp",
-    price: "140 ₺",
+    price: "160 ₺",
     category: "ana-yemekler"
   },
   {
@@ -150,7 +150,7 @@ export const menuItems = [
     name_en: "Traditional buttered rice",
     description_en: "Delicious rice pilaf, perfectly cooked with butter.",
     image: "/pilav.webp",
-    price: "90 ₺",
+    price: "120 ₺",
     category: "ana-yemekler"
   },
   // Salatalar
@@ -161,7 +161,7 @@ export const menuItems = [
     name_en: "White Bean Salad",
     description_en: "The best companion for meatballs, with plenty of tahini and vinegar.",
     image: "/piyaz.webp",
-    price: "120 ₺",
+    price: "140 ₺",
     category: "salatalar"
   },
   {
@@ -171,7 +171,7 @@ export const menuItems = [
     name_en: "Shepherd's Salad",
     description_en: "A refreshing flavor prepared with fresh vegetables.",
     image: "/coban.webp",
-    price: "120 ₺",
+    price: "140 ₺",
     category: "salatalar"
   },
   {
@@ -181,7 +181,7 @@ export const menuItems = [
     name_en: "Yogurt with chopped cucumber",
     description_en: "The refreshing harmony of yogurt and cucumber.",
     image: "/cacik.webp",
-    price: "90 ₺",
+    price: "120 ₺",
     category: "salatalar"
   },
   // Tatlılar
@@ -192,7 +192,7 @@ export const menuItems = [
     name_en: "Traditional semolina dessert",
     description_en: "Warm and delicious, traditional semolina dessert.",
     image: "/helva.webp",
-    price: "90 ₺",
+    price: "120 ₺",
     category: "tatlilar"
   },
   // İçecekler
@@ -203,7 +203,7 @@ export const menuItems = [
     name_en: "Cola (300 ml)",
     description_en: "A refreshing and classic choice.",
     image: "/cola.webp",
-    price: "70 ₺",
+    price: "80 ₺",
     category: "icecekler"
   },
   {
@@ -213,7 +213,7 @@ export const menuItems = [
     name_en: "Fanta (300 ml)",
     description_en: "The refreshing taste of orange.",
     image: "/fanta.webp",
-    price: "70 ₺",
+    price: "80 ₺",
     category: "icecekler"
   },
   {
@@ -223,7 +223,7 @@ export const menuItems = [
     name_en: "Sprite (300 ml)",
     description_en: "The freshness of lemon and lime.",
     image: "/sprite.webp",
-    price: "70 ₺",
+    price: "80 ₺",
     category: "icecekler"
   },
   {
@@ -233,7 +233,7 @@ export const menuItems = [
     name_en: "Turnip Juice (300 ml)",
     description_en: "A traditional and delicious drink.",
     image: "/salgam.webp",
-    price: "50 ₺",
+    price: "60 ₺",
     category: "icecekler"
   },
   {
@@ -243,7 +243,7 @@ export const menuItems = [
     name_en: "Coffee",
     description_en: "An enjoyable break after the meal.",
     image: "/kahve.webp",
-    price: "100 ₺",
+    price: "120 ₺",
     category: "icecekler"
   },
   {
@@ -263,7 +263,7 @@ export const menuItems = [
     name_en: "Large Ayran (300 ml)",
     description_en: "Cool and refreshing ayran with plenty of foam.",
     image: "/buyukayran.webp",
-    price: "50 ₺",
+    price: "60 ₺",
     category: "icecekler"
   },
   {
@@ -273,7 +273,7 @@ export const menuItems = [
     name_en: "Ayran (250 ml)",
     description_en: "Refreshing and delicious bottled ayran.",
     image: "/kucukayran.webp",
-    price: "50 ₺",
+    price: "60 ₺",
     category: "icecekler"
   },
   {
@@ -283,7 +283,7 @@ export const menuItems = [
     name_en: "Sparkling Water (200 ml)",
     description_en: "Mineral water.",
     image: "/soda.webp",
-    price: "30 ₺",
+    price: "40 ₺",
     category: "icecekler"
   },
   {
