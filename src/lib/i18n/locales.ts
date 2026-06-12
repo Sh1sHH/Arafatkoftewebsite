@@ -19,8 +19,15 @@ export const translations: Record<Locale, Translations> = {
     menu: 'Menü',
     
     // Hero
-    slogan: '1986\'den beri değişmeyen lezzet.',
+    slogan: '1986\'dan beri değişmeyen lezzet.',
     discover_story: 'Hikayemizi Keşfedin',
+    hero_est: 'EST. 1986 — EMİNÖNÜ, İSTANBUL',
+    hero_directions: 'Yol Tarifi',
+    hero_hours_short: 'Pzt – Cmt · 08:00 – 19:00',
+    hero_bubble: 'Köfteleri çevirmeyi unutma!',
+    hero_stamp: 'Günlük Hazırlanır',
+    hero_badge: 'ARAFAT KÖFTE • 1986\'DAN BERİ • EMİNÖNÜ • ',
+    hero_photo_alt: 'Arafat Köfte - ızgara köfte porsiyonu',
     
     // Info Section
     info_welcome_title: 'Arafat Köfte\'ye Hoş Geldiniz',
@@ -67,6 +74,13 @@ export const translations: Record<Locale, Translations> = {
     // Hero
     slogan: 'Unchanging taste since 1986.',
     discover_story: 'Discover Our Story',
+    hero_est: 'EST. 1986 — EMİNÖNÜ, ISTANBUL',
+    hero_directions: 'Get Directions',
+    hero_hours_short: 'Mon – Sat · 08:00 – 19:00',
+    hero_bubble: "Don't forget to flip the köfte!",
+    hero_stamp: 'Made Fresh Daily',
+    hero_badge: 'ARAFAT KÖFTE • SINCE 1986 • EMİNÖNÜ • ',
+    hero_photo_alt: 'Arafat Köfte - grilled meatball plate',
     
     // Info Section
     info_welcome_title: 'Welcome to Arafat Köfte',

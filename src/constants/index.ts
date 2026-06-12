@@ -1,20 +1,11 @@
+// Navbar'daki köfte butonlarına hover edilince yayınlanan olay (Hero'daki konuşma balonunu susturur)
+export const BUBBLE_SNOOZE_EVENT = 'arafat:bubble-snooze';
+
 export const navLinks = [
   { id: "home", title: "Ana Sayfa" },
   { id: "about", title: "Bilgi" },
   { id: "menu", title: "Menü" },
   { id: "gallery", title: "Galeri" },
-];
-
-// Restoranın müzik koleksiyonu
-export const musicList = [
-  {
-    id: "music-1",
-    artist: "Ferdi Özbeğen",
-    title: "Dönsen Bile",
-    albumArt: "/album.png",
-    audioSrc: "/musics/Donsen_Bile.mp3",
-    isSong: true
-  }
 ];
 
 export const menuCategories = [
@@ -296,58 +287,4 @@ export const menuItems = [
     price: "10 ₺",
     category: "icecekler"
   }
-];
-
-export const galleryImages = [
-  {
-    id: "restaurant-1",
-    title: "Restoranımızın Dış Görünümü",
-    image: "https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-  },
-  {
-    id: "restaurant-2",
-    title: "Geleneksel Dekorasyon",
-    image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-  },
-  {
-    id: "restaurant-3",
-    title: "Rahat Oturma Alanı",
-    image: "https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-  },
-  {
-    id: "food-1",
-    title: "Köfte Spesiyalimiz",
-    image: "https://images.pexels.com/photos/2233729/pexels-photo-2233729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-  },
-  {
-    id: "food-2",
-    title: "Taze Salatalar",
-    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-  },
-  {
-    id: "food-3",
-    title: "Özel Tatlılarımız",
-    image: "https://images.pexels.com/photos/3026804/pexels-photo-3026804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-  },
-];
-
-export const testimonials = [
-  {
-    id: "testimonial-1",
-    name: "Ahmet Yılmaz",
-    text: "40 yıldır birçok köfteci gezdim ama buranın lezzeti bambaşka. Geleneksel tadı korurken modern sunumu da çok başarılı.",
-    rating: 5,
-  },
-  {
-    id: "testimonial-2",
-    name: "Ayşe Kaya",
-    text: "Ailece gittiğimiz favori mekanımız. Çocuklar için de uygun porsiyon seçenekleri var. Temiz, lezzetli ve sıcak bir ortam.",
-    rating: 5,
-  },
-  {
-    id: "testimonial-3",
-    name: "Mehmet Demir",
-    text: "İş yemekleri için sık sık tercih ediyorum. Hızlı servis ve kaliteli malzemeler kullanıyorlar. Kesinlikle tavsiye ederim.",
-    rating: 4,
-  },
 ];

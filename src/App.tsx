@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
+import AwningNav from './components/AwningNav';
 import Hero from './components/Hero';
 import InfoSection from './components/InfoSection';
 import Menu from './components/Menu';
 import ImageGallery from './components/ImageGallery';
 import QrMenuPage from './components/QrMenuPage';
-import GoogleAdsense from './components/GoogleAdsense';
 import NotFound from './components/NotFound';
-import Sitemap from './components/Sitemap';
 import './styles/index.css';
-import { Menu as MenuIcon, X as XIcon } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react';
 import { useLanguage } from './lib/i18n/LanguageContext';
 
 const HomePageLayout: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { locale, setLocale } = useLanguage();
+  const { locale } = useLanguage();
   const location = useLocation();
 
   // URL'e göre ilgili bölüme scroll et
@@ -45,84 +42,46 @@ const HomePageLayout: React.FC = () => {
     scrollToSection();
   }, [location.pathname]);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
   return (
-    <div className="flex relative min-h-screen">
-      <button 
-        className="md:hidden fixed top-4 left-4 z-[60] p-2 bg-white text-neutral-700 rounded-md shadow-lg hover:bg-neutral-100 transition-colors"
-        onClick={toggleMobileMenu}
-        aria-label={isMobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
-        aria-expanded={isMobileMenuOpen}
-      >
-        {isMobileMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
-      </button>
+    <div className="min-h-screen">
+      <AwningNav />
 
-      <Sidebar isOpen={isMobileMenuOpen} toggleMenu={toggleMobileMenu} />
-      
-      {/* Dil Seçim Butonları */}
-      <div className="fixed top-4 right-4 z-50 flex space-x-2">
-        <button
-          onClick={() => setLocale('tr')}
-          className={`px-3 py-1 text-xs font-medium rounded-full transition-colors duration-200 
-                    ${locale === 'tr' 
-                        ? 'bg-red-700 text-white' 
-                        : 'bg-white shadow-sm text-neutral-700 hover:bg-neutral-100'
-                    }`}
-        >
-          TR
-        </button>
-        <button
-          onClick={() => setLocale('en')}
-          className={`px-3 py-1 text-xs font-medium rounded-full transition-colors duration-200 
-                    ${locale === 'en' 
-                        ? 'bg-red-700 text-white' 
-                        : 'bg-white shadow-sm text-neutral-700 hover:bg-neutral-100'
-                    }`}
-        >
-          EN
-        </button>
-      </div>
-      
-      <main id="main-content" className="flex-1 ml-0 md:ml-64 lg:ml-72 overflow-y-auto h-screen">
+      <main id="main-content">
         <Hero />
         <InfoSection />
-        
-        {/* AdSense Reklamı - Info ve Menu arasında */}
-        {/* <div className="py-8 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <GoogleAdsense 
-              client="ca-pub-6430440480434971"
-              slot="9534281020"
-              responsive={true}
-              format="auto"
-              className="w-full max-w-4xl mx-auto"
-            />
-          </div>
-        </div> */}
-        
         <Menu />
         <ImageGallery />
-        
-        {/* AdSense Reklamı - Sayfanın altında */}
-        {/* <div className="py-8 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <GoogleAdsense 
-              client="ca-pub-6430440480434971"
-              slot="9534281020" // Aynı slot ID'sini kullanıyoruz
-              responsive={true}
-              format="auto"
-              className="w-full max-w-4xl mx-auto"
-            />
-          </div>
-        </div> */}
-        
-        {/* Telif Hakkı Bilgisi */}
-        <footer className="py-6 bg-white">
+
+        {/* Telif Hakkı ve Sosyal Medya */}
+        <footer className="bg-lokanta-ink border-t-4 border-lokanta-red py-10">
           <div className="container mx-auto px-4 text-center">
-            <p className="text-neutral-500 text-sm">
+            <img
+              src="/logooo.webp"
+              alt="Arafat Köfte Logo"
+              className="w-16 h-16 mx-auto mb-4 object-contain"
+              loading="lazy"
+            />
+            <div className="flex justify-center space-x-5 mb-5">
+              <a
+                href="https://instagram.com/arafatkofte"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lokanta-paper/70 hover:text-lokanta-gold transition-colors duration-300"
+                aria-label="Instagram sayfamızı ziyaret edin"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a
+                href="https://facebook.com/arafatkofte"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lokanta-paper/70 hover:text-lokanta-gold transition-colors duration-300"
+                aria-label="Facebook sayfamızı ziyaret edin"
+              >
+                <Facebook className="w-6 h-6" />
+              </a>
+            </div>
+            <p className="font-pixel text-lokanta-paper/60 text-sm">
               &copy; {new Date().getFullYear()} Arafat Köfte. {locale === 'tr' ? 'Tüm hakları saklıdır.' : 'All rights reserved.'}
             </p>
           </div>
@@ -146,10 +105,7 @@ function App() {
       <Route path="/galeri" element={<HomePageLayout />} />
       <Route path="/gallery.html" element={<HomePageLayout />} />
       <Route path="/index.html" element={<HomePageLayout />} />
-      
-      {/* Sitemap route */}
-      <Route path="/sitemap.xml" element={<Sitemap />} />
-      
+
       {/* Catch-all route - tüm diğer URL'ler için 404 sayfası */}
       <Route path="*" element={<NotFound />} />
     </Routes>

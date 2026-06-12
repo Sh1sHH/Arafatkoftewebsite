@@ -1,18 +1,9 @@
 import React from 'react';
-// import Carousel from './Carousel'; // Karusel kaldırıldı
 import { MapPin, Phone, Clock, Mail } from 'lucide-react';
-import { galleryImages } from '../constants'; // Resimler için eklendi
 import { useLanguage } from '../lib/i18n/LanguageContext';
 
 const InfoSection: React.FC = () => {
   const { t } = useLanguage();
-  
-  // Görseller - sabit olarak public klasöründen alınıyor
-  const image1 = '/dukkan2.webp';
-  const altText1 = 'Arafat Köfte Dükkan Görünümü';
-  // İletişim görseli - sabit olarak public klasöründen alınıyor
-  const image2 = '/iletisim.webp';
-  const altText2 = 'İletişim Görseli';
 
   const handleMenuScroll = () => {
     const menuElement = document.getElementById('menu');
@@ -21,120 +12,137 @@ const InfoSection: React.FC = () => {
     }
   };
 
-  return (
-    // pattern-bg kaldırıldı, padding ayarlandı
-    <section id="info" className="py-16 md:py-24 bg-white"> 
-      <div className="container mx-auto px-4">
-        {/* Ana Başlık - referans tasarımda bölüm başlığı yok, içerik blokları kendi başlıklarına sahip */}
-        {/* <h2 className="section-title text-center mb-20 text-neutral-800">Hakkımızda & İletişim</h2> */}
+  // İletişim plaket kartları
+  const contactCards = [
+    {
+      icon: MapPin,
+      label: t('address_label'),
+      content: t('address_content'),
+    },
+    {
+      icon: Phone,
+      label: t('phone_label'),
+      content: '0 (212) 511 60 65\n0 (212) 522 33 90',
+      href: 'tel:+902125116065',
+    },
+    {
+      icon: Mail,
+      label: t('email_label'),
+      content: 'arafatkofte@gmail.com',
+      href: 'mailto:arafatkofte@gmail.com',
+    },
+    {
+      icon: Clock,
+      label: t('hours_label'),
+      content: t('hours_content'),
+    },
+  ];
 
-        {/* Yeni Grid Yapısı: 2x2 benzeri bir akış */}
-        {/* Mobil için tek sütun, orta ve büyük ekranlar için iki sütun */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch"> 
-          
-          {/* 1. Blok: Hakkımızda Metni (Referanstaki Menus bloğu gibi) */}
-          <div className="flex flex-col justify-center p-6 md:p-8 order-1">
-            <h3 className="text-3xl md:text-4xl font-semibold text-neutral-800 mb-6 text-left">
+  return (
+    <section id="info" className="py-16 md:py-24 bg-lokanta-paper">
+      <div className="container mx-auto px-4">
+        {/* Hakkımızda: metin + fotoğraf */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 md:mb-28">
+          <div>
+            <p className="font-pixel text-lokanta-gold text-lg mb-2" aria-hidden="true">★ ★ ★</p>
+            <h2 className="font-pixel font-bold uppercase text-4xl md:text-5xl text-lokanta-ink mb-4">
               {t('info_welcome_title')}
-            </h3>
-            <p className="text-neutral-600 mb-4 leading-relaxed text-left text-lg">
+            </h2>
+            <div className="w-24 h-1.5 bg-lokanta-red mb-6 shadow-[2px_2px_0_rgba(43,36,32,0.25)]"></div>
+            <p className="text-lokanta-ink/80 mb-4 leading-relaxed text-lg">
               {t('info_welcome_text1')}
             </p>
-            <p className="text-neutral-500 mb-8 leading-relaxed text-left text-sm">
+            <p className="text-lokanta-ink/60 mb-8 leading-relaxed text-sm">
               {t('info_welcome_text2')}
             </p>
-            <div className="text-left mt-10">
-              <button 
-                onClick={handleMenuScroll}
-                className="inline-block bg-red-700 hover:bg-red-800 text-white font-semibold py-3 px-8 rounded-md shadow-md hover:shadow-lg transition-all duration-300 text-base"
-                aria-label={t('discover_menu')}
-              >
-                {t('discover_menu')}
-              </button>
+            <button
+              onClick={handleMenuScroll}
+              className="bg-lokanta-red text-lokanta-paper font-pixel font-semibold uppercase tracking-wide text-base px-8 py-4 border-2 border-lokanta-ink shadow-[5px_5px_0_#2B2420] hover:shadow-[2px_2px_0_#2B2420] hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150"
+              aria-label={t('discover_menu')}
+            >
+              {t('discover_menu')}
+            </button>
+          </div>
+
+          {/* Fotoğraf: çerçeveli, hafif eğik */}
+          <div className="relative">
+            <div className="bg-lokanta-paper border-2 border-lokanta-ink shadow-[8px_8px_0_rgba(43,36,32,0.25)] p-2 -rotate-1 hover:rotate-0 transition-transform duration-300">
+              <img
+                src="/dukkan2.webp"
+                alt="Arafat Köfte dükkan görünümü"
+                className="w-full h-72 md:h-96 object-cover border border-lokanta-ink/30"
+                loading="lazy"
+              />
             </div>
+            <span
+              className="absolute -bottom-4 -left-3 rotate-2 bg-lokanta-ink text-lokanta-paper font-pixel text-sm px-4 py-2 shadow-[3px_3px_0_rgba(163,33,37,0.6)]"
+              aria-hidden="true"
+            >
+              EST. 1986 — EMİNÖNÜ
+            </span>
           </div>
+        </div>
 
-          {/* 2. Blok: Resim */}
-          <div className="order-2 md:order-2 rounded-lg overflow-hidden shadow-lg h-80 md:h-auto">
-            <img 
-              src={image1} 
-              alt={altText1} 
-              className="w-full h-full object-cover"
-            />
-          </div>
+        {/* İletişim */}
+        <div className="text-center mb-12">
+          <p className="font-pixel text-lokanta-gold text-lg mb-2" aria-hidden="true">★ ★ ★</p>
+          <h2 className="font-pixel font-bold uppercase text-4xl md:text-5xl text-lokanta-ink">
+            {t('contact_title')}
+          </h2>
+          <div className="w-24 h-1.5 bg-lokanta-red mx-auto mt-4 shadow-[2px_2px_0_rgba(43,36,32,0.25)]"></div>
+        </div>
 
-          {/* 3. Blok: Resim */}
-          {/* Mobil için 3. sırada, md ve üzeri için 3. sırada (sol altta) */}
-          <div className="order-3 md:order-3 rounded-lg overflow-hidden shadow-lg h-80 md:h-auto">
-            <img 
-              src={image2} 
-              alt={altText2} 
-              className="w-full h-full object-cover"
-            />
-          </div>
-          
-          {/* 4. Blok: İletişim Detayları ve Harita (Referanstaki Reservations bloğu gibi) */}
-          {/* Mobil için 4. sırada, md ve üzeri için 4. sırada (sağ altta) */}
-          <div className="flex flex-col justify-center p-6 md:p-8 order-4 md:order-4">
-            <h3 className="text-3xl md:text-4xl font-semibold text-neutral-800 mb-6 text-left">
-              {t('contact_title')}
-            </h3>
-            <div className="space-y-5 mb-6 text-left">
-              {/* Adres */}
-              <div className="flex items-start">
-                <MapPin className="w-6 h-6 text-red-700 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-neutral-700">{t('address_label')}</p>
-                  <p className="text-neutral-500 text-sm">{t('address_content')}</p>
-                </div>
-              </div>
-              {/* Telefon */}
-              <div className="flex items-start">
-                <Phone className="w-6 h-6 text-red-700 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-neutral-700">{t('phone_label')}</p>
-                  <a href="tel:+902125116065" className="text-neutral-500 hover:text-red-700 transition-colors duration-300 text-sm">0(212) 511 60 65
-                  <br />
-0(212) 522 33 90</a>
-                </div>
-              </div>
-              {/* E-posta */}
-              <div className="flex items-start">
-                <Mail className="w-6 h-6 text-red-700 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-neutral-700">{t('email_label')}</p>
-                  <a href="mailto:arafatkofte@gmail.com" className="text-neutral-500 hover:text-red-700 transition-colors duration-300 text-sm">arafatkofte@gmail.com</a>
-                </div>
-              </div>
-              {/* Çalışma Saatleri */}
-              <div className="flex items-start">
-                <Clock className="w-6 h-6 text-red-700 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-neutral-700">{t('hours_label')}</p>
-                  <p className="text-neutral-500 text-sm whitespace-pre-line">
-                    {t('hours_content')}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+          {/* Plaket kartları */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 content-start">
+            {contactCards.map((card) => {
+              const Icon = card.icon;
+              const inner = (
+                <>
+                  <span className="inline-flex items-center justify-center w-11 h-11 bg-lokanta-red border-2 border-lokanta-ink shadow-[2px_2px_0_rgba(43,36,32,0.35)] mb-3">
+                    <Icon className="w-5 h-5 text-lokanta-paper" aria-hidden="true" />
+                  </span>
+                  <p className="font-pixel uppercase text-base text-lokanta-ink mb-1.5">{card.label}</p>
+                  <p className="text-lokanta-ink/70 text-sm leading-relaxed whitespace-pre-line">
+                    {card.content}
                   </p>
+                </>
+              );
+              const cardClass =
+                'block bg-lokanta-cream border-2 border-lokanta-ink shadow-[5px_5px_0_rgba(43,36,32,0.25)] p-5 transition-all duration-150';
+              return card.href ? (
+                <a
+                  key={card.label}
+                  href={card.href}
+                  className={`${cardClass} hover:-translate-y-1 hover:shadow-[7px_8px_0_rgba(43,36,32,0.3)]`}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div key={card.label} className={cardClass}>
+                  {inner}
                 </div>
-              </div>
-            </div>
-            <div className="h-64 md:h-80 w-full rounded-lg overflow-hidden shadow-md border border-neutral-200">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.39307550881!2d28.97091037642534!3d41.0166555189084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9ea54c254bd%3A0xc653a019c7dd51ab!2sArafat%20K%C3%B6fte!5e0!3m2!1str!2str!4v1749174978637!5m2!1str!2str" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Arafat Köfte Konumu"
-              ></iframe>
-            </div>
+              );
+            })}
           </div>
 
+          {/* Harita */}
+          <div className="bg-lokanta-cream border-2 border-lokanta-ink shadow-[8px_8px_0_rgba(43,36,32,0.25)] p-2">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.39307550881!2d28.97091037642534!3d41.0166555189084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9ea54c254bd%3A0xc653a019c7dd51ab!2sArafat%20K%C3%B6fte!5e0!3m2!1str!2str!4v1749174978637!5m2!1str!2str"
+              width="100%"
+              height="100%"
+              className="min-h-[320px] lg:min-h-full border border-lokanta-ink/30"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Arafat Köfte Konumu"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default InfoSection; 
+export default InfoSection;

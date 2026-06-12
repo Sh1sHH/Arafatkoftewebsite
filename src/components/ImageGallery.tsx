@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-// Eski importlar kaldırıldı
-// import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import { MasonryPhotoAlbum } from 'react-photo-album';
-import 'react-photo-album/masonry.css';
 import { useLanguage } from '../lib/i18n/LanguageContext';
 
 // Public klasöründeki görsellerin yolları
@@ -35,7 +31,7 @@ const imageUrls = [
 
 // Resimler için alt metinleri ve başlıkları hazırlayalım
 const getImagesData = (locale: string) => {
-  return imageUrls.map((src, index) => {
+  return imageUrls.map((src) => {
     const fileName = src.substring(src.lastIndexOf('/') + 1).replace(/\.[^/.]+$/, "");
     const isStore = fileName.includes('dukkan');
     
@@ -94,34 +90,37 @@ const ImageGallery: React.FC = () => {
   };
 
   return (
-    <section id="gallery" className="bg-white py-16 md:py-24 px-4 md:px-6 lg:px-8">
+    <section id="gallery" className="bg-lokanta-cream py-16 md:py-24 px-4 md:px-6 lg:px-8">
       <div className="container mx-auto">
-      <h2 className="text-5xl md:text-6xl font-tuesday text-neutral-800 mb-4 text-center">
-          {t('gallery_title')}
-        </h2>
-        <div className="w-24 h-1 bg-red-700 mx-auto mb-12 md:mb-16"></div>
-        
-        {/* Modern CSS-only masonry grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+        {/* Bölüm başlığı */}
+        <div className="text-center mb-12 md:mb-16">
+          <p className="font-pixel text-lokanta-gold text-lg mb-2" aria-hidden="true">★ ★ ★</p>
+          <h2 className="font-pixel font-bold uppercase text-4xl md:text-5xl text-lokanta-ink">
+            {t('gallery_title')}
+          </h2>
+          <div className="w-24 h-1.5 bg-lokanta-red mx-auto mt-4 shadow-[2px_2px_0_rgba(43,36,32,0.25)]"></div>
+        </div>
+
+        {/* Fotoğraf baskısı görünümlü masonry grid */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
           {imagesData.map((image, index) => (
-            <div 
-              key={index} 
-              className="break-inside-avoid relative overflow-hidden rounded-lg shadow-md transform transition-all duration-300 hover:shadow-xl group cursor-pointer"
+            <div
+              key={index}
+              className="break-inside-avoid relative bg-lokanta-paper border-2 border-lokanta-ink shadow-[5px_5px_0_rgba(43,36,32,0.25)] p-1.5 group cursor-pointer hover:-translate-y-1 hover:shadow-[7px_8px_0_rgba(43,36,32,0.3)] transition-all duration-200"
               aria-label={image.alt}
               role="button"
               tabIndex={0}
               onClick={() => openModal(image)}
               onKeyDown={(e) => handleKeyDown(e, image)}
             >
-              <img 
-                src={image.src} 
-                alt={image.alt} 
-                className="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500 will-change-transform"
-                loading="lazy"
-              />
-              
-              {/* Hover overlay açıklamaları kaldırıldı */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="overflow-hidden border border-lokanta-ink/30">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500 will-change-transform"
+                  loading="lazy"
+                />
+              </div>
             </div>
           ))}
         </div>

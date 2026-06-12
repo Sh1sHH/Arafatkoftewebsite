@@ -1,11 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap URLs
-Sitemap: https://arafatkofte.com/sitemap.php
-Sitemap: https://www.arafatkofte.com/sitemap.php
 Sitemap: https://arafatkofte.com/sitemap.xml
-Sitemap: https://www.arafatkofte.com/sitemap.xml
-
-# Crawl-delay for better server performance
-Crawl-delay: 1
