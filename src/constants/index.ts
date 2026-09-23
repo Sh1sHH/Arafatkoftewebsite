@@ -60,7 +60,7 @@ export const menuItems = [
     name_en: "Chicken Soup",
     description_en: "The healing and flavor of chicken come together in this soup.",
     image: "/tavuksuyu.webp",
-    price: "100 ₺",
+    price: "140 ₺",
     category: "corbalar"
   },
   // Ana Yemekler
